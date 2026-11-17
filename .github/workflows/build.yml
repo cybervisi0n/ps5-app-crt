@@ -33,5 +33,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v6
         with:
-          name: ps5-mesa_release
+          name: ps5-app-crt_release
           path: build/ps5-app-crt_release
