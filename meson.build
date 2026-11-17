@@ -7,13 +7,18 @@ project('ps5-app-crt', ['c', 'cpp'],
     version: '1.0'
 )
 
+prospero_headers_dep = dependency('prospero-headers')
+
+subdir('src')
+
 
 ps5_app_crt_lib = static_library('ps5_app_crt',
     pic: true,
     sources: ps5_app_crt_srcs,
     c_args: [
         '-fms-extensions'
-    ]
+    ],
+    dependencies: prospero_headers_dep,
 )
 
 ps5_app_crt_dep = declare_dependency(

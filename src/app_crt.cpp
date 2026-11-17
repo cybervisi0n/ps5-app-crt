@@ -1,8 +1,6 @@
 #include <cstddef>
 #include <cstdint>
 
-#include "ps5_heap.h"
-
 using Destructor = void (*)();
 using Initializer = void (*)();
 
@@ -12,6 +10,8 @@ extern "C"
     int atexit(Destructor callback);
     [[noreturn]] void exit(int status);
     int application_main(int argc, char **argv, char **envp) __asm__("main");
+
+    void ps5_rpmalloc_initialize();
 
     extern Initializer __preinit_array_start[] __attribute__((weak));
     extern Initializer __preinit_array_end[] __attribute__((weak));
@@ -68,7 +68,7 @@ _start(void *process_parameters, Destructor loader_teardown)
         (void)atexit(loader_teardown);
     (void)atexit(_fini);
     _init();
-    ps5_heap_initialize();
+    ps5_rpmalloc_initialize();
     const int status = application_main(argc, argv, nullptr);
     catchReturnFromMain(status);
     exit(status);
