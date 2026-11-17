@@ -19,3 +19,7 @@ int __dlclose(void *handle) {
 char * __dlerror(void) {
     return "Not implemented";
 }
+
+int kernel_mprotect(int pid, unsigned long addr, unsigned long len, int prot) {
+    return 0;
+}
