@@ -28,7 +28,7 @@ jobs:
         run: ./drun.sh echo done
 
       - name: Build
-        run: ./drun.sh ./ps5-scripts/ci_build.sh
+        run: ./drun.sh ./scripts/ci_build.sh
       
       - name: Upload artifact
         uses: actions/upload-artifact@v6
