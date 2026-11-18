@@ -3,8 +3,9 @@ ps5_app_crt_srcs = files(
     'app_crt.cpp',
     'memstream.c',
     'posix_fallocate.c',
-    'rpmalloc/malloc.c',
-    'rpmalloc/ps5_memory_interface.c',
-    'rpmalloc/rpmalloc.c',
+    'dlmalloc/heap.c',
+    'dlmalloc/heap_wrap.c',
+    'dlmalloc/mspace.c',
+    'dlmalloc/placement.c',
     'rtld_stub.c'
 )
